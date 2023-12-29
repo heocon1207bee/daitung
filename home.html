@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dai Tung of Mission</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .main-header {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 15px;
+        display: flex;
+        justify-content: end;
+        position: sticky;
+        top: 0;
+      }
+      .main-header .header-nav {
+        white-space: nowrap;
+        padding-right: 15%;
+        display: flex;
+        gap: 25px;
+      }
+      .main-header .header-nav .nav-link {
+        text-decoration: none;
+        color: #d9d9d9;
+        font-size: 14px;
+      }
+      .slider-section {
+        width: 100%;
+        height: 700px;
+        background-size: cover;
+        background-position: center;
+        background-image: url(./assets/image/slider1.jpg);
+        transition: background-image 2s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10%;
+      }
+      .slider-content {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        align-items: center;
+      }
+      .slider-content h1 {
+        font-size: 90px;
+        text-align: center;
+      }
+      .slider-content h2 {
+        font-size: 55px;
+        font-family: cursive;
+      }
+      .slider-content h3 {
+        font-size: 30px;
+        font-family: cursive;
+      }
+      .slider-content .star {
+        font-size: 15px;
+        margin-top: 40px;
+      }
+      .slider-content .order-online {
+        text-decoration: none;
+        color: white;
+        border: 1px solid white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        background-color: #f26522;
+        margin-top: 30px;
+      }
+      .special-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 40px 20px;
+      }
+      .special-section h1 {
+        color: #f26522;
+        font-size: 40px;
+        font-family: cursive;
+      }
+      .special-section .special-show {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        width: 100%;
+      }
+      .special-section .special-item {
+        margin: 40px;
+      }
+      .special-section .img-container {
+        width: 100%;
+        height: 180px;
+        padding: 10px;
+        border-radius: 3px;
+        box-shadow: 0 0 2px 2px #e3e3e3;
+      }
+      .special-section .special-item .img-bg {
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: background-image 0.2s ease-in-out;
+      }
+      .sp-item-1 .img-bg {
+        background-image: url(./assets/image/1.jpg);
+      }
+      .sp-item-1:hover .img-bg {
+        background-image: url(./assets/image/2.jpg);
+      }
+      .sp-item-2 .img-bg {
+        background-image: url(./assets/image/3.jpg);
+      }
+      .sp-item-2:hover .img-bg {
+        background-image: url(./assets/image/4.jpg);
+      }
+      .sp-item-3 .img-bg {
+        background-image: url(./assets/image/5.jpg);
+      }
+      .sp-item-3:hover .img-bg {
+        background-image: url(./assets/image/6.jpg);
+      }
+      .special-section .special-item .special-name {
+        margin-top: 30px;
+        font-size: 27px;
+        font-weight: 400;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .special-section .special-show {
+          grid-template-columns: 1fr;
+        }
+      }
+      .order-section {
+        width: 100%;
+        background-color: #2a1610;
+        color: white;
+        display: flex;
+        padding: 80px 10%;
+      }
+      .order-section .order-sec {
+        width: 50%;
+      }
+      .order-section .order-sec-1 img {
+        width: 100%;
+        height: auto;
+      }
+      .order-section .order-sec-1 h2 {
+        font-size: 40px;
+        margin-top: 30px;
+      }
+      .order-section .order-sec-1 h1 {
+        font-size: 70px;
+        font-weight: 400;
+        margin-top: 20px;
+      }
+      .order-section .order-sec-1 p {
+        margin-top: 30px;
+      }
+      .order-section .order-sec-1 .order-now {
+        border: 1px solid white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        background-color: #f26522;
+        margin-top: 30px;
+        width: fit-content;
+      }
+      .order-section .order-sec-1 .order-now a {
+        text-decoration: none;
+        color: white;
+      }
+      .order-section .order-sec-2 img {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+      }
+      @media (max-width: 768px) {
+        .order-section {
+          flex-direction: column;
+        }
+        .order-section .order-sec {
+          width: 100%;
+        }
+      }
+      .saying-section {
+        width: 100%;
+        height: 300px;
+        background-image: url("./assets/image/8.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        padding: 70px 10%;
+      }
+      .saying-section .saying-content {
+        width: 100%;
+        max-width: 500px;
+        background-color: rgba(242, 101, 34, 0.83);
+        padding: 45px 80px;
+      }
+      .saying-section .saying-content h3 {
+        font-size: 30px;
+        font-weight: 400;
+        text-align: center;
+        font-family: cursive;
+      }
+      .saying-section .saying-content p {
+        font-size: 20px;
+        font-weight: 400;
+      }
+      .contact-section {
+        width: 100%;
+        display: flex;
+        padding: 80px 10%;
+      }
+      .contact-section .contact-sec {
+        width: 50%;
+      }
+      .contact-section .contact-sec-1 {
+        padding-left: 20px;
+      }
+      .contact-section .contact-sec-1 > * {
+        margin-bottom: 25px;
+      }
+      .contact-section .contact-sec-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+      }
+      .contact-section .contact-sec-2 h2 {
+        color: #f26522;
+        font-size: 30px;
+        font-weight: 400;
+        font-family: cursive;
+      }
+      .contact-section .contact-sec-2 .working-hour li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      .contact-section .contact-sec-2 .working-hour li .whour {
+        margin-left: 30px;
+      }
+      @media (max-width: 768px) {
+        .contact-section {
+          flex-direction: column;
+        }
+        .contact-section .contact-sec {
+          width: 100%;
+          text-align: center;
+        }
+        .contact-section .contact-sec-1 {
+          padding-left: 0;
+        }
+        .contact-section .contact-sec-2 {
+          align-items: center;
+        }
+      }
+      .main-footer {
+        background-color: #f26522;
+        text-align: center;
+        color: white;
+        padding: 50px 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="header-nav">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="#" class="nav-link">Order Online</a>
+        <a href="home.html#contact-us" class="nav-link">Contact Us</a>
+      </nav>
+    </header>
+    <main class="main-content">
+      <section class="slider-section">
+        <div class="slider-content">
+          <h2>Welcome To</h2>
+          <h1>Dai Tung of Mission</h1>
+          <div class="star">★★★★★★★★★★★★★★★★★★★★</div>
+          <h3>Best Food, Great Value</h3>
+          <a href="#" class="order-online">Order Online</a>
+        </div>
+      </section>
+      <section class="special-section">
+        <h1>Our Specialties</h1>
+        <div class="star">★★★★★★★★★★★★</div>
+        <div class="special-show">
+          <div class="special-item sp-item-1">
+            <div class="img-container">
+              <div class="img-bg"></div>
+            </div>
+            <h3 class="special-name">Serving with Love</h3>
+          </div>
+          <div class="special-item sp-item-2">
+            <div class="img-container">
+              <div class="img-bg"></div>
+            </div>
+            <h3 class="special-name">Tasty Products</h3>
+          </div>
+          <div class="special-item sp-item-3">
+            <div class="img-container">
+              <div class="img-bg"></div>
+            </div>
+            <h3 class="special-name">Wide Range Flavors</h3>
+          </div>
+        </div>
+      </section>
+      <section class="order-section">
+        <div class="order-sec order-sec-1">
+          <img src="./assets/image/7.jpg" alt="image" />
+          <h2>Have You Ever</h2>
+          <h1>Ordered <b>Online</b></h1>
+          <p>🕝 Pickup Only</p>
+          <div class="order-now">
+            <a href="#">Order Online Now</a>
+          </div>
+        </div>
+        <div class="order-sec order-sec-2">
+          <img src="./assets/image/9.png" alt="image" />
+        </div>
+      </section>
+      <section class="saying-section">
+        <div class="saying-content">
+          <h3>People are saying</h3>
+          <p>
+            Everything has just been fantastic! I would recommend this
+            restaurant to anyone.
+          </p>
+        </div>
+      </section>
+      <section id="contact-us" class="contact-section">
+        <div class="contact-sec contact-sec-1">
+          <img src="./assets/image/knife_fork.png" />
+          <p>➡️ Open In Maps</p>
+          <p>📞 956-584-3595</p>
+        </div>
+        <div class="contact-sec contact-sec-2">
+          <img src="./assets/image/clock.png" />
+          <h2>Working Hour</h2>
+          <ul class="working-hour">
+            <li>
+              <div>Sunday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+            <li>
+              <div>Monday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+            <li>
+              <div>Tuesday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+            <li>
+              <div>Wednesday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+            <li>
+              <div>Thursday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+            <li>
+              <div>Friday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+            <li>
+              <div>Sartuday</div>
+              <div class="whour">11:00 AM - 8:30 PM</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="map-section">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15677.804090280088!2d106.70306058996583!3d10.776726844547591!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f41476fee6b%3A0x15de2e5129cc54f!2zVMOyYSBuaMOgIHTDoGkgY2jDrW5oIEJpdGV4Y28sIELhur9uIE5naMOpLCBRdeG6rW4gMSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1696312673720!5m2!1svi!2s"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <p>© Copyright 2023 Dai Tung of Mission. All Rights Reserved.</p>
+    </footer>
+    <script>
+      const section = document.querySelector(".slider-section");
+      console.log(section);
+      const images = [
+        "url(assets/image/slider1.jpg)",
+        "url(assets/image/slider2.jpg)",
+        // Thêm các đường link đến hình ảnh của bạn ở đây
+      ];
+      let currentIndex = 0;
+
+      function changeBackground() {
+        section.style.backgroundImage = images[currentIndex];
+        currentIndex = (currentIndex + 1) % images.length;
+      }
+
+      setInterval(changeBackground, 4000); // Cứ 2 giây, hình ảnh sẽ thay đổi
+    </script>
+  </body>
+</html>
